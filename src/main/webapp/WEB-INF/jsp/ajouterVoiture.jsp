@@ -20,35 +20,38 @@
 		<div class="row">
 			<div class="col-md-12 order-md-1">
 				<form action="<%= request.getContextPath()%>/AjouterServlet" method="post">
-					<div class="md-3">
+					<div class="mb-3">
 						<label for="marque">Marque</label>
 						<input type="text" class="form-control" id="marque" name="marque">
 					</div>
 
-					<div class="md-3">
+					<div class="mb-3">
 						<label for="modele">Modèle</label>
 						<input type="text" class="form-control" id="modele" name="modele">
 					</div>
 
-					<div class="md-3">
+					<div class="mb-3">
 						<label for="kilometrage">Kilométrage</label>
 						<input type="text" class="form-control" id="kilometrage" name="kilometrage">
 					</div>
 
-					<div class="md-3">
+					<div class="mb-3">
 						<label for="immatriculation">Immatriculation</label>
 						<input type="text" class="form-control" id="immatriculation" name="immatriculation">
 					</div>
 
-					<div class="md-3">
+					<div class="mb-3">
 						<label for="annee">Année</label>
 						<input type="number" class="form-control" id="annee" name="annee">
 					</div>
-					<br>
-					<button class="btn btn-primary bnt-lg btn-block" type="submit">Ajouter Voiture</button>
+					<button class="btn btn-primary bnt-lg btn-block" type="submit">Ajouter</button>
 				</form>
 			</div>
 		</div>
+		
+		<footer class="my-5 pt-5 text-muted text-center text-small">
+        	<p class="mb-1">&copy; 2024 Editions ENI</p>
+      </footer>
 	</div>
 	
 </body>

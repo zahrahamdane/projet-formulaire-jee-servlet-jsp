@@ -68,6 +68,10 @@
 				<a class="btn btn-primary btn-lg btn-block" href="<%= request.getContextPath()%>/AjouterServlet">Ajouter Voiture</a>
 			</div>
 		</div>
+		
+		<footer class="my-5 pt-5 text-muted text-center text-small">
+        	<p class="mb-1">&copy; 2024 Editions ENI</p>
+      	</footer>
 	</div>
 	
 </body>

@@ -63,17 +63,39 @@ public class Voiture {
 		this.immatriculation = immatriculation;
 	}
 
-
 	public int getAnnee() {
 		return annee;
 	}
-
 
 	public void setAnnee(int annee) {
 		this.annee = annee;
 	}
 
-
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((immatriculation == null) ? 0 : immatriculation.hashCode());
+		return result;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Voiture other = (Voiture) obj;
+		if (immatriculation == null) {
+			if (other.immatriculation != null)
+				return false;
+		} else if (!immatriculation.equals(other.immatriculation))
+			return false;
+		return true;
+	}
+	
 	@Override
 	public String toString() {
 		return "Voiture [marque=" + marque + ", modele=" + modele + ", kilometrage=" + kilometrage

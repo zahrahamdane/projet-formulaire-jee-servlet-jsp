@@ -19,14 +19,14 @@ public class EditerServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 1-Lecture de l'identifiant à éditer
+		// 1-Lecture de l'identifiant à editer
 		String immatriculation = request.getParameter("immatriculation");
 		
-		// 2-Rechercher de la voiture à éditer
+		// 2-Rechercher de la voiture à editer
 		Voiture voitureAEditer = new Voiture();
 		voitureAEditer.setImmatriculation(immatriculation);
 		List<Voiture> voitures = (List<Voiture>) this.getServletContext().getAttribute("voitures");
-		voitureAEditer = voitures.get(voitures.indexOf(voitureAEditer)+1);
+		voitureAEditer = voitures.get(voitures.indexOf(voitureAEditer));
 		
 		// 3-Transferer la requete à la jsp editerVoiture.jsp
 		request.setAttribute("voitureAEditer", voitureAEditer);
@@ -38,8 +38,23 @@ public class EditerServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		// 1-Lecture de l'identifiant à editer
+		String immatriculation = request.getParameter("immatriculation");
+		
+		// 2-Rechercher de la voiture à editer
+		Voiture voitureAEditer = new Voiture();
+		voitureAEditer.setImmatriculation(immatriculation);
+		List<Voiture> voitures = (List<Voiture>) this.getServletContext().getAttribute("voitures");
+		voitureAEditer = voitures.get(voitures.indexOf(voitureAEditer));
+		
+		// 3-Modification de la voiture
+		voitureAEditer.setMarque(request.getParameter("marque"));
+		voitureAEditer.setModele(request.getParameter("modele"));
+		voitureAEditer.setKilometrage(request.getParameter("kilometrage"));
+		voitureAEditer.setAnnee(Integer.parseInt(request.getParameter("annee")));
+		
+		// 4-Redirection vers la servlet ListerServlet 
+		response.sendRedirect(request.getContextPath()+"/ListerServlet");
 	}
 
 }
